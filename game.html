@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Obesenec – Hra</title>
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+<body>
+<script src="game.js"></script>
+<nav>
+  <a href="index.html" class="logo">☠ Obesenec</a>
+  <a href="index.html">Úvod</a>
+  <a href="game.html" class="active">Hra</a>
+  <a href="about.html">O hře</a>
+</nav>
+
+<main>
+  <h1>Hádej slovo</h1>
+
+  <div class="form-group" style="max-width:220px">
+    <label>KATEGORIE</label>
+    <select id="cat" style="background:#1a1a1a;border:1px solid #444;color:#eee;font-family:monospace;padding:0.5rem 0.8rem;border-radius:4px;font-size:0.9rem">
+      <option value="all">Vše</option>
+      <option value="animals">Zvířata</option>
+      <option value="countries">Státy</option>
+      <option value="food">Jídlo</option>
+      <option value="custom">Vlastní slova</option>
+    </select>
+  </div>
+  <button class="btn" onclick="startGame()">▶ Nová hra</button>
+
+  <hr style="border-color:#222;margin:1.5rem 0">
+
+  <div id="game" style="display:none">
+    <div id="gallows-wrap">
+      <svg viewBox="0 0 160 200" xmlns="http://www.w3.org/2000/svg">
+        <line x1="10" y1="190" x2="150" y2="190" stroke="#c8b89a" stroke-width="5" stroke-linecap="round"/>
+        <line x1="40" y1="190" x2="40"  y2="10"  stroke="#c8b89a" stroke-width="5" stroke-linecap="round"/>
+        <line x1="40" y1="10"  x2="110" y2="10"  stroke="#c8b89a" stroke-width="5" stroke-linecap="round"/>
+        <line x1="110" y1="10" x2="110" y2="35"  stroke="#c8b89a" stroke-width="3" stroke-linecap="round"/>
+        <circle id="p0" cx="110" cy="50"  r="14"  fill="none" stroke="#e05c00" stroke-width="4" visibility="hidden"/>
+        <line   id="p1" x1="110" y1="64"  x2="110" y2="110" stroke="#e05c00" stroke-width="4" stroke-linecap="round" visibility="hidden"/>
+        <line   id="p2" x1="110" y1="78"  x2="88"  y2="100" stroke="#e05c00" stroke-width="4" stroke-linecap="round" visibility="hidden"/>
+        <line   id="p3" x1="110" y1="78"  x2="132" y2="100" stroke="#e05c00" stroke-width="4" stroke-linecap="round" visibility="hidden"/>
+        <line   id="p4" x1="110" y1="110" x2="90"  y2="145" stroke="#e05c00" stroke-width="4" stroke-linecap="round" visibility="hidden"/>
+        <line   id="p5" x1="110" y1="110" x2="130" y2="145" stroke="#e05c00" stroke-width="4" stroke-linecap="round" visibility="hidden"/>
+        <line   id="p6" x1="90"  y1="145" x2="78"  y2="158" stroke="#e05c00" stroke-width="3" stroke-linecap="round" visibility="hidden"/>
+        <line   id="p7" x1="130" y1="145" x2="142" y2="158" stroke="#e05c00" stroke-width="3" stroke-linecap="round" visibility="hidden"/>
+      </svg>
+    </div>
+
+    <div id="lives"></div>
+    <div id="word-display"></div>
+    <div id="hint-box"></div>
+    <div id="status"></div>
+    <div id="letters"></div>
+
+    <div style="display:flex;gap:0.6rem;margin-top:1rem;flex-wrap:wrap">
+      <button class="btn sec" id="hint-btn" onclick="useHint()">💡 Nápověda (−1 život)</button>
+      <button class="btn" id="new-btn" onclick="startGame()" style="display:none">▶ Nová hra</button>
+    </div>
+  </div>
+</main>
+
+<footer>Školní projekt · Obesenec · <script>document.write(new Date().getFullYear())</script></footer>
+
+
+</body>
+</html>

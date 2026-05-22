@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Obesenec – O hře</title>
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+<body>
+<script src="about.js"></script>
+<nav>
+  <a href="index.html" class="logo">☠ Obesenec</a>
+  <a href="index.html">Úvod</a>
+  <a href="game.html">Hra</a>
+  <a href="about.html" class="active">O hře</a>
+</nav>
+
+<main>
+  <h1>O hře</h1>
+
+  <div class="box">
+    <h2>Přidat vlastní slova</h2>
+    <p style="color:#aaa;margin-bottom:1rem">Vlastní slova jsou dostupná ve hře v kategorii <em>Vlastní slova</em>.</p>
+
+    <div class="form-group">
+      <label>SLOVO (pouze písmena, 3–30 znaků)</label>
+      <input type="text" id="cword" placeholder="např. SLON AFRICKÝ" maxlength="30" oninput="valWord()">
+      <div class="err" id="err"></div>
+    </div>
+    <div class="form-group">
+      <label>NÁPOVĚDA (nepovinná)</label>
+      <input type="text" id="chint" placeholder="Největší suchozemský savec" maxlength="80">
+    </div>
+    <button class="btn" onclick="addWord()">Přidat</button>
+    <span id="ok" class="ok"></span>
+
+    <hr style="border-color:#333;margin:1rem 0">
+    <p style="margin-bottom:0.6rem">Uložená slova: <b id="cnt">0</b>
+      <button class="btn sec" onclick="clearAll()" id="clrBtn" style="display:none;margin-left:0.8rem">🗑 Smazat vše</button>
+    </p>
+    <div id="cwlist"></div>
+  </div>
+
+  <div class="box" style="color:#aaa;line-height:1.7">
+    <h2>Školní projekt</h2>
+    <p>Aplikace vytvořena jako školní projekt. Technologie: HTML5, CSS3, JavaScript. Data se ukládají v prohlížeči (<code>localStorage</code>).</p>
+    <p style="margin-top:0.5rem;color:#555;font-size:0.8rem">Testováno: Google Chrome 124 &nbsp;|&nbsp; <script>document.write(new Date().getFullYear())</script></p>
+  </div>
+</main>
+
+<footer>Školní projekt · Obesenec · <script>document.write(new Date().getFullYear())</script></footer>
+
+
+</body>
+</html>
